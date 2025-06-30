@@ -11,24 +11,17 @@ int main()
     int n;
     cin>>n;
     int m=n;
-    int count=int(log10(n))+1;
-    int l,r;
-    for (int i=0;i<count/2;i++){
-        l= n/(int(pow(10,count-i-1)));
-        n=n%(int(pow(10,count-i-1)));
-        r=m%10;
-        m=m/10;
-        if (l!=r){
-            cout<<"not_palindrome"<<endl;
-            exit(0);
-        }
+    int rev=0;
+
+    int dig;
+
+    while(n>0){
+        dig = n%10;
+        n=n/10;
+        rev=rev*10+dig;
     }
-
-    cout<<"palindrome"<<endl;
-
-
-
-
+    
+    m==rev?cout<<"palindrome":cout<<"not palindrome";
 
     return 0;
 }

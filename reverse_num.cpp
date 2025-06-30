@@ -13,15 +13,12 @@ int main()
 
     int rev=0;
 
-    int exp=0;
     int dig;
-    int count=int(log10(n)+1);
 
     while(n>0){
         dig = n%10;
         n=n/10;
-        rev+=dig*pow(10,count-exp-1);
-        exp++;
+        rev=rev*10+dig;
     }
 
     cout<<rev;
