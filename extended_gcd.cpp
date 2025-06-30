@@ -23,7 +23,7 @@ int main()
 
     int hcf=gcd(a,b);
 
-    cout<<hcf<<endl;
+    cout<<"hcf : "<<hcf<<endl;
 
     int rem;
 
