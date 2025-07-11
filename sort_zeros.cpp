@@ -15,17 +15,47 @@ int main()
         cin >> v[i];
     }
 
-    int low=0;
+    int low=0,mid=0,high=n-1;
     
-    while(v[low]==0){
-        low+=1;
+    // while(v[low]==0){
+    //     low++;
+    // }
+    // int mid=low;
+    // while(v[mid]==1){
+    //     mid++;
+    // }
+    // int high=n-1;
+    
+    // while(v[high]==2){
+    //     high--;
+    // }
+    
+    while(mid<=high){
+        cout<<low<<endl;
+        cout<<mid<<endl;
+        cout<<high<<endl<<endl;
+        if (v[mid]==0){
+            swap(v[low],v[mid]);
+            low++;mid++;
+        }
+        else if (v[mid]==2){
+
+            swap(v[mid],v[high]);
+            high--;
+        }
+        else if (v[mid]==1){
+            mid++;
+        }
+
+    for(auto i:v){
+        cout<<i<<" ";
     }
-    cout<<low-1<<endl;
-    int mid=low;
-    while(v[mid]==1){
-        mid+=1;
+    cout<<endl;
     }
 
-    cout<<mid-1<<endl;
+    for(auto i:v){
+        cout<<i<<" ";
+    }
+    
     return 0;
 }
