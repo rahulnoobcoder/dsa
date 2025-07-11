@@ -51,7 +51,7 @@ int main()
     //     cout<<i<<" ";
     // }
     // cout<<endl;
-    // }
+    }
 
     for(auto i:v){
         cout<<i<<" ";
