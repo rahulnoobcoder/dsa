@@ -23,7 +23,15 @@ int main()
     }
     k=k%n;
     rev(v,0,k-1);
+    for(auto i:v){
+        cout<<i<<" ";
+    }
+    cout<<endl;
     rev(v,k,n-1);
+    for(auto i:v){
+        cout<<i<<" ";
+    }
+    cout<<endl;
     rev(v,0,n-1);
 
     for(auto i:v){
