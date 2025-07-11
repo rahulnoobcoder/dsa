@@ -15,19 +15,35 @@ int main()
         cin >> v[i];
     }
 
-    unordered_map<int,int> map;
+    // map<int,int> map;
+    // for(auto i:v){
+    //     if (map.find(i)!=map.end()){
+    //         map[i]++;
+    //         if (map[i]>n/2){
+    //             cout<<i;
+    //             break;
+    //         }
+    //     }
+    //     else{
+    //         map[i]=1;
+    //     }
+    // }
+
+    //optimal approach
+
+    int ele,count=0;
+
     for(auto i:v){
-        if (map.find(i)!=map.end()){
-            map[i]++;
-            if (map[i]>n/2){
-                cout<<map[i];
-                break;
-            }
+        if (count==0){
+            ele=i;
+            count++;
         }
         else{
-            map[i]=1;
+            ele==i?count++:count--;
         }
-    }
+    }   
+    cout<<ele;
+
 
 
 
