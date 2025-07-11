@@ -31,9 +31,9 @@ int main()
     // }
     
     while(mid<=high){
-        cout<<low<<endl;
-        cout<<mid<<endl;
-        cout<<high<<endl<<endl;
+        // cout<<low<<endl;
+        // cout<<mid<<endl;
+        // cout<<high<<endl<<endl;
         if (v[mid]==0){
             swap(v[low],v[mid]);
             low++;mid++;
@@ -47,11 +47,11 @@ int main()
             mid++;
         }
 
-    for(auto i:v){
-        cout<<i<<" ";
-    }
-    cout<<endl;
-    }
+    // for(auto i:v){
+    //     cout<<i<<" ";
+    // }
+    // cout<<endl;
+    // }
 
     for(auto i:v){
         cout<<i<<" ";
