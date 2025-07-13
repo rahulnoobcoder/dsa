@@ -21,6 +21,7 @@ int main()
         mx_r=max(mx_r,v[i]);
         mx_prof=max(mx_prof,mx_r-v[i]); 
     }
+    
     cout<<mx_prof;
     return 0;
 }
