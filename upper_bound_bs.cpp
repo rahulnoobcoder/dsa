@@ -2,13 +2,11 @@
 using namespace std;
 
 
-
-//if u pass only vector , its passed by value  so additonal space each time , so pass it by reference 
-int binary_search(vector<int>&v , int l,int r,int k){
+int binary_search(vector<int> &v , int l,int r,int k){
     if (l<=r){
 
         int mid=l+(r-l)/2;
-         if (v[mid]<k){
+         if (v[mid]<=k){
             
             return binary_search(v,mid+1,r,k);   
         }
