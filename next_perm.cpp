@@ -1,18 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-
-
-void print_perms(vector<int> &v,int i,int n){
-    if (i==n){
-        cout<<"\n";
-        return;
-    }
-    cout<<v[0]<<" ";
-    print_perms(v,i+1,n);
-}
-
-
 int main()
 {
     #ifndef ONLINE_JUDGE
@@ -27,9 +15,31 @@ int main()
         cin >> v[i];
     }
 
-    for(int i=0;i<n;i++){
-        swap(v[i],v[0]);
-        pritnt_perms(v,0,n);
+        int i;
+        for(i=n-2;i>=0;i--){
+            if (v[i]<v[i+1]){
+                break;
+            }
+        }
+        if (i==-1){
+            for(int i=0;i<n/2;i++){
+                swap(v[i],v[n-i-1]);
+            }
+        }
+        else{
+            int j=n-1;
+            while(v[j]<=v[i]){
+                j--;
+            }
+            swap(v[i],v[j]);
+            int l=i+1,r=n-1;
+            while(l<r){
+                swap(v[l++],v[r--]);
+            }
+        }
+
+    for(auto i:v){
+        cout<<i<<" ";
     }
 
 
