@@ -54,26 +54,19 @@ class ll{
         }
         cout<<endl;
     }
-    void merge(Node* left,Node* right){
-        if (left!=NULL){
-            while(left->next!=NULL){
-                left=left->next;
-            }
-            left->next=right;
-        }
-    }
 
     void merge_sort(Node* left){
         if (left!=NULL){
             Node* mid=get_mid(left);
             Node* right=mid->next;
             mid->next=NULL;
+            display(left);
+            display(right);
+            // merge_sort(left);
+            // merge_sort(right);
 
-            merge_sort(left);
-            merge_sort(right);
 
-
-            merge(left,right);
+            // merge(left,right);
         }
     }
 
@@ -99,10 +92,8 @@ int main()
         l1.insert(x); 
     }
 
-    l1.display();
     Node* ptr=l1.get_mid(l1.head);
 
     l1.merge_sort(l1.head);
-    l1.display();
     return 0;
 }
