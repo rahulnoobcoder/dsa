@@ -1,22 +1,28 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-
-int cost(vector<int>& h,int n,vector<int>&dp){
-        if (n<=1){
-            
-            return dp[n] = abs(h[n]-h[0]);
-        }
-        if (dp[n]!=-1){
-            return dp[n];
-        }
-        
-        int l=cost(h,n-2,dp)+abs(h[n-2]-h[n]);
-        int r=cost(h,n-1,dp)+abs(h[n-1]-h[n]);
-        dp[n]=min(l,r);
-        return dp[n];
-        
+int cost(int a,int b){
+    return abs(a-b);
+}
+int solve(int arr[],int i,int n,int dp[]){
+    
+    if (i==n-2){
+        return cost(arr[i],arr[i+1]);
     }
+    if (i==n-1){
+        return 0;
+    }
+
+    if (dp[i]!=-1){
+        return dp[i];
+    }
+    int single = cost(arr[i],arr[i+1])+solve(arr,i+1,n,dp);
+    int dble   = cost(arr[i],arr[i+2])+solve(arr,i+2,n,dp); 
+
+    return dp[i]=min(single,dble);
+
+}
+
 
 int main()
 {
@@ -27,13 +33,21 @@ int main()
 
     int n;
     cin >> n;
-    vector<int> v(n);
+    int arr[n];
     for(int i = 0; i < n; ++i) {
-        cin >> v[i];
+        cin >> arr[i];
     }
-    vector<int> dp (n,-1);
+
+    int dp[n];
+    for(int i=0;i<n;i++){
+        dp[i]=-1;
+    }
+    cout<<solve(arr,0,n,dp);
+
+    
 
 
-    cout<<cost(v,n-1,dp);
+
+
     return 0;
 }
