@@ -10,6 +10,9 @@ int gcd(int a,int b){
         return a;
     }
 }
+
+
+
 int main()
 {
     #ifndef ONLINE_JUDGE
