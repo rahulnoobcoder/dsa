@@ -20,7 +20,7 @@ int binary_search(vector<int> &v , int l,int r,int k){
     }
 }
 
-
+    
 int main()
 {
     #ifndef ONLINE_JUDGE
