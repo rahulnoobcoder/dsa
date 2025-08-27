@@ -3,6 +3,7 @@
     "files.associations": {
         "iostream": "cpp",
         "format": "cpp",
-        "cstdlib": "cpp"
+        "cstdlib": "cpp",
+        "xlocale": "cpp"
     }
 }

@@ -8,11 +8,12 @@ int main()
     freopen("output.txt", "w", stdout);
     #endif
 
-    int n,m;
-    cin >> n>>m;
-
-    vector<vector<int>> graph(n,vector<int>(n,0));
-
+    int n;
+    cin >> n;
+    int arr[n];
+    for(int i = 0; i < n; ++i) {
+        cin >> arr[i];
+    }
 
     return 0;
 }
