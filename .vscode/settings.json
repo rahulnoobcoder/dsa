@@ -4,6 +4,7 @@
         "iostream": "cpp",
         "format": "cpp",
         "cstdlib": "cpp",
-        "xlocale": "cpp"
+        "xlocale": "cpp",
+        "xstring": "cpp"
     }
 }
