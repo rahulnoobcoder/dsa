@@ -19,7 +19,6 @@ int main()
         v[x].push_back(y);
         indeg[y]++;
     }
-    vector<int> visited(n,0);
     queue<int> q;
 
     for(int i=0;i<n;i++){
@@ -28,16 +27,16 @@ int main()
     vector<int> order;
     while(!q.empty()){
         int node=q.front();
-        for(int i=0;i<n;i++){
-            if (g[node][i]==1 && indeg[i]>0){
+        for(auto i:v[node]){
+            if (indeg[i]>0){
                 indeg[i]--;
             }
-            else if (indeg[i]==0) q.push(i);
+            if (indeg[i]==0) q.push(i);
         }
         order.push_back(node);
         q.pop();
     }
 
-    for(auto i:order) cout<<i<<" ";
+    for(auto i:order) cout<<i<<" ";`
     return 0;
 }
