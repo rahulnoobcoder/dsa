@@ -45,23 +45,14 @@ pair<int,int> query(vector<pair<int,int>> &segm,int i,int low,int high,int l,int
 }
 
 
-void update(vector<int> segm,int i, int low,int high,int pos ,int val){
-    if (low == high){
-        segm[i]=val;
-        return;
-    }
 
-    int mid = low +(high-low)/2;
 
-    if (pos <= mid){
-        update(segm,2*i,low,mid,pos,val);
-    }
-    else {
-        update(segm,2*i+1,mid+1,high,pos,val);
-    }
 
-    segm[i] = segm[2*i]+segm[2*i+1]; 
-}
+
+
+
+
+
 
 
 int main()
