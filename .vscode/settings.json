@@ -6,6 +6,7 @@
         "cstdlib": "cpp",
         "xlocale": "cpp",
         "xstring": "cpp",
-        "ostream": "cpp"
+        "ostream": "cpp",
+        "tuple": "cpp"
     }
 }

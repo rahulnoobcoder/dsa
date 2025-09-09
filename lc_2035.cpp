@@ -1,20 +1,31 @@
 #include <bits/stdc++.h>
 using namespace std;
-
-void solve(int arr[],int i,int n,int tot_sum,int cost,set<int> &ans){
-    if (i==n){
-        if (tot_sum!=cost && cost!=0)
-        ans.insert(abs(2*cost-tot_sum));
-        return;
+struct KeyHash {
+    size_t operator()(const tuple<int,int,int>& t) const {
+        // auto [a,b,c] = t;
+        int a = get<0>(t);
+        int b = get<1>(t);
+        int c = get<2>(t);
+        // simple hash combining
+        return ((size_t)a * 1315423911u) ^ ((size_t)b << 21) ^ ((size_t)c * 2654435761u);
     }
+};
 
-
-    solve(arr,i+1,n,tot_sum,cost+arr[i],ans);
-
-    while(i<n-1 && arr[i]==arr[i+1]) i++;
-    solve(arr,i+1,n,tot_sum,cost,ans);
-}
-
+int solve(vector<int> &arr,int i,int n,int tot_sum,int cost,int count,unordered_map<tuple<int,int,int>,int,KeyHash> &mp){
+    if (count==n/2){
+        return abs(2*cost-tot_sum);
+    }
+    if(count>n/2){
+        return INT_MAX;
+    }   
+    if (i==n){
+        return INT_MAX;
+    }
+    if (mp.find({i,count,cost})!=mp.end()) return mp[{i,count,cost}];
+    int take=solve(arr,i+1,n,tot_sum,cost+arr[i],count+1,mp);
+    int ntake=solve(arr,i+1,n,tot_sum,cost,count,mp);
+    return mp[{i,count,cost}]=min(take,ntake);
+    }   
 int main()
 {
     #ifndef ONLINE_JUDGE
@@ -24,18 +35,16 @@ int main()
 
     int n;
     cin >> n;
-    int arr[n];
+    vector<int> nums(n);
     for(int i = 0; i < n; ++i) {
-        cin >> arr[i];
+        cin >> nums[i];
     }
     int tot_sum=0;
     for(int i=0;i<n;i++){
-        tot_sum+=arr[i];
+    tot_sum+=nums[i];
     }
-
-    set<int> ans;
-    solve(arr,0,n,tot_sum,0,ans);
-    int min_val = *ans.begin();
-    cout<<min_val;
+    unordered_map<tuple<int,int,int>,int,KeyHash> dp;
+    sort(nums.begin(),nums.end());
+    cout<<solve(nums,0,n,tot_sum,0,0,dp);
     return 0;
 }
